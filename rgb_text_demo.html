@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RGB Text Animations</title>
+    <style>
+        body {
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .text-display {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 30px;
+            text-align: center;
+            letter-spacing: 5px;
+        }
+        
+        .label {
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="color: #fff; margin-bottom: 50px;">GAMER RGB TEXT ANIMATIONS</h1>
+    
+    <div class="label">1. RAINBOW WAVE</div>
+    <div id="rainbow" class="text-display">GAMER RGB STYLE</div>
+    
+    <div class="label">2. PULSE</div>
+    <div id="pulse" class="text-display">GAMER RGB STYLE</div>
+    
+    <div class="label">3. MATRIX RAIN</div>
+    <div id="matrix" class="text-display">GAMER RGB STYLE</div>
+    
+    <div class="label">4. FIRE</div>
+    <div id="fire" class="text-display">GAMER RGB STYLE</div>
+    
+    <div class="label">5. NEON FLICKER</div>
+    <div id="neon" class="text-display">GAMER RGB STYLE</div>
+
+    <script>
+        // Rainbow Wave
+        function rainbowWave() {
+            const element = document.getElementById('rainbow');
+            const text = element.textContent;
+            let frame = 0;
+            
+            setInterval(() => {
+                let output = '';
+                for (let i = 0; i < text.length; i++) {
+                    const hue = (frame * 10 + i * 15) % 360;
+                    output += `<span style="color: hsl(${hue}, 100%, 60%)">${text[i]}</span>`;
+                }
+                element.innerHTML = output;
+                frame++;
+            }, 50);
+        }
+
+        // Pulse
+        function pulse() {
+            const element = document.getElementById('pulse');
+            let frame = 0;
+            
+            setInterval(() => {
+                const brightness = (Math.sin(frame * 0.1) + 1) / 2;
+                const r = Math.floor(255 * brightness);
+                const g = Math.floor(100 * brightness);
+                const b = Math.floor(255 * brightness);
+                element.style.color = `rgb(${r}, ${g}, ${b})`;
+                frame++;
+            }, 50);
+        }
+
+        // Matrix Rain
+        function matrixRain() {
+            const element = document.getElementById('matrix');
+            const text = element.textContent;
+            let frame = 0;
+            
+            setInterval(() => {
+                let output = '';
+                for (let i = 0; i < text.length; i++) {
+                    const intensity = Math.floor(255 * Math.abs(Math.sin(frame * 0.15 - i * 0.5)));
+                    output += `<span style="color: rgb(0, ${intensity}, 0)">${text[i]}</span>`;
+                }
+                element.innerHTML = output;
+                frame++;
+            }, 50);
+        }
+
+        // Fire
+        function fire() {
+            const element = document.getElementById('fire');
+            const text = element.textContent;
+            let frame = 0;
+            
+            setInterval(() => {
+                let output = '';
+                for (let i = 0; i < text.length; i++) {
+                    const flicker = Math.abs(Math.sin(frame * 0.25 + i * 0.7));
+                    const r = 255;
+                    const g = Math.floor(100 + 155 * flicker);
+                    const b = Math.floor(50 * flicker);
+                    output += `<span style="color: rgb(${r}, ${g}, ${b})">${text[i]}</span>`;
+                }
+                element.innerHTML = output;
+                frame++;
+            }, 50);
+        }
+
+        // Neon Flicker
+        function neonFlicker() {
+            const element = document.getElementById('neon');
+            const colors = [[0, 255, 255], [255, 0, 255], [255, 255, 0]]; // Cyan, Magenta, Yellow
+            let frame = 0;
+            
+            setInterval(() => {
+                const color = colors[frame % colors.length];
+                const flicker = 0.7 + 0.3 * Math.abs(Math.sin(frame * 0.4));
+                const r = Math.floor(color[0] * flicker);
+                const g = Math.floor(color[1] * flicker);
+                const b = Math.floor(color[2] * flicker);
+                element.style.color = `rgb(${r}, ${g}, ${b})`;
+                frame++;
+            }, 50);
+        }
+
+        // Start all animations
+        rainbowWave();
+        pulse();
+        matrixRain();
+        fire();
+        neonFlicker();
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <meta name="google" content="notranslate">        <title>Rutina Diaria 1</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Rutina Diaria 1</h1>
+        
+        <div class="timer-display">
+            <div id="timer">5:00</div>
+        </div>
+        
+        <button id="toggleBtn">Reveal</button>
+        <button id="endTestBtn" class="end-test-btn hidden">End Test</button>
+        
+        <div id="wordList" class="word-list hidden"></div>
+    </div>
+    
+    <div id="cheatingOverlay" class="cheating-overlay hidden"></div>
+    
+    <div id="confirmModal" class="confirm-modal hidden">
+        <div class="confirm-content">
+            <p>Are you sure you want to end the test? Your timer will be set to 0.</p>
+            <div class="confirm-buttons">
+                <button id="confirmYes" class="confirm-btn confirm-yes">Yes, End Test</button>
+                <button id="confirmNo" class="confirm-btn confirm-no">Cancel</button>
+            </div>
+        </div>
+    </div>
+    
+    <audio id="sirenSound" loop>
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACAgoSGiImKi4qKiYiGhIKAfn16eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/gYOFh4iJiouKiomIhoSCf356eXh3d3h5ent9f4GDhYeIiYqLioqJiIaEgn9+fHp5eHd3eHl6e31/" type="audio/wav">
+    </audio>
+    
+    <script src="words.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
