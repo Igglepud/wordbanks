@@ -36,4 +36,6 @@ const words = [
     "los ojos azules",
     "los ojos marrones",
     "los ojos verdes",
+    "tengo",
+    "tiene"
 ];
